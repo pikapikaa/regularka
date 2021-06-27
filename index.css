@@ -1,0 +1,14 @@
+.parse-list {
+	display: none;
+}
+.img img {
+	width: 200px;
+}
+table {
+	font-size: 13px;
+	border-collapse: collapse;
+}
+td {
+	border: 1px solid #ccc;
+	padding: 10px 12px;
+}

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>homework7</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+	Имеется список ноутбуков. На основании данных о модели нужно для каждого создать таблицу технических характеристик,
+	распарсив каждую строку. Пример можете глянуть ниже.
+	<ul class="parse-list">
+		<li>
+			Ноутбук Acer Aspire E1-572G-74506G50Mnkk 15.6" HD, Ci7-4500U, 6144Mb, 500Gb, HD8670-1Gb, DVD-RW, WiFi, BT,
+			Cam, W8, Black (NX.M8KER.003)
+		</li>
+		<li>
+			Ноутбук Acer Aspire E3-112-C0CR 11.6" HD, Celeron N2840, 2048Mb, 320Gb, WiFi, BT, Cam, W8.1, розовый
+			(NX.MRMER.004)
+		</li>
+		<li>
+			Ноутбук Acer Aspire E5-521-83RU 15.6" HD, AMD A8-6410, 4096Mb, 500Gb, DVD-RW, WiFi, BT, Cam, W8.1
+			(NX.MLFER.014)
+		</li>
+		<li>
+			Ноутбук Acer Aspire E5-521G-841X 15.6" HD, AMD A8-6410(2.0), 4096Mb, 500Gb, M240-2Gb, WiFi, Cam, W8.1,
+			красный (NX.MS6ER.001)
+		</li>
+		<li>
+			Ноутбук Acer Aspire E5-521G-88VM 15.6", AMD A8-6410, 4096Mb, 500Gb, R5 M240-2Gb, DVD-RW, WiFi, BT, Cam,
+			6-Cell, W8.1, Черный (NX.MS5ER.004)
+		</li>
+		<li>
+			Ноутбук Acer Aspire E5-551G-F63G 15.6" HD, AMD FX-7500, 8192Mb, 1Tb+8Gb SSD, R7 M265-2Gb, DVD-RW, WiFi, BT,
+			Cam, W8.1, черный (NX.MLEER.010)
+		</li>
+		<li>
+			Ноутбук Acer Aspire E5-551G-T2LT 15.6" HD, AMD A10-7300, 4096Mb, 500Gb, R7 M265-2Gb, DVD-RW, WiFi, BT, Cam,
+			W8.1, Черный (NX.MLEER.003)
+		</li>
+		<li>
+			Ноутбук Acer Aspire E5-551-T580 15.6" HD, A10-7300, 4096Mb, 500Gb, DVD-RW, WiFi, BT, Cam, W8.1, черный
+			(NX.MLDER.003)
+		</li>
+		<li>
+			Ноутбук Acer Aspire E5-571G-539K 15.6" HD, Ci5-5200U, 4096Mb, 500Gb, GF840M-2Gb, DVD-RW, WiFi, BT, Cam,
+			W8.1, Черный (NX.MLCER.031)
+		</li>
+		<li>
+			Ноутбук Acer Aspire E5-571G-56A6 15.6" HD, Ci5-4210U, 6144Mb, 1Tb, DVD-RW, GT840M-2Gb, WiFi, BT, Cam, W8.1
+			(NX.MPVER.004)
+		</li>
+		<li>
+			Ноутбук Acer Aspire E5-571G-56AH 15.6" HD, Ci5-4210U, 6144Mb, 1Tb, GF840M-2Gb, DVD-RW, WiFi, BT, Cam, W8.1,
+			Красный (NX.MM0ER.005)
+		</li>
+		<li>
+			Ноутбук Acer Aspire E5-771G-348S 17.3" HD+, Ci3-4005U, 6144Mb, 1Tb, GF840M-2Gb, DVD-RW, WiFi, BT, Cam, W8.1,
+			Серый (NX.MNVER.009)
+		</li>
+		<li>
+			Ноутбук Acer Aspire R3-471T-56KA 14" HD Touch, Ci5-4210U, 4096Mb, 1Tb, WiFi, BT, Cam, W8.1, Серый
+			(NX.MP4ER.002)
+		</li>
+		<li>
+			Ноутбук Acer Aspire R3-471T-586U 14" HD, Ci5-5200U, 4096Mb, 1Tb, WiFi, BT, Cam, W8.1, Серый (NX.MP4ER.003)
+		</li>
+		<li>
+			Ноутбук Acer Aspire R3-471TG-52YZ 14" HD Touch, Ci5-4210U, 4096Mb, 1Tb, GF820M-2Gb, WiFi, BT, Cam, W8.1
+			(NX.MP5ER.003)
+		</li>
+		<li>
+			Ноутбук Acer Aspire R3-471TG-555B 14" HD, Ci5-5200U, 4096Mb, 1Tb, GF820M, WiFi, BT, Cam, W8.1, Серый
+			(NX.MP5ER.004)
+		</li>
+		<li>
+			Ноутбук Acer Aspire R7-371T-50TF 13.3" 2560x1440 Touch, Ci5-4210U, 4096Mb, 256Gb SSD, WiFi, BT, Cam, W8.1
+			(NX.MQQER.002)
+		</li>
+		<li>
+			Ноутбук Acer Aspire R7-371T-77FF 13.3" 2560x1440 Touch, Ci7-4510U, 4096Mb, 256Gb SSD, WiFi, BT, Cam, W8.1
+			(NX.MQQER.003)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V 15 Nitro VN7-571G-5059 15.6" FHD IPS, Ci5-4210U, 6144Mb, 1Tb+8Gb SSD, DVD-RW,
+			GT840M-2Gb, WiFi, BT, Cam, W8 (NX.MQKER.004)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V15 Nitro VN7-591G-72RU 15.6" FHD, Ci7-4710HQ, 8192Mb, 1Tb+8Gb SSD, GTX860M-4Gb, WiFi,
+			BT, Cam, W8.1, Черный (NX.MTDER.002)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V3-112P-C451 11.6" HD Touch, Celeron N2840, 4096Mb, 500Gb, WiFi, BT, Cam, W8
+			(NX.MRQER.002)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V3-331-P703 13.3" HD, Pentium 3556U, 4096Mb, 500Gb+8Gb SSD, WiFi, BT, Cam, W8.1
+			(NX.MPJER.002)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V3-371-33A4 13.3" HD, Intel Ci3-4030U(1.9), 4096Mbb, 500Gb+8Gb SSD, WiFi, Cam, W8.1,
+			черный (NX.MPGER.010)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V3-371-33EC 13.3" HD, Ci3-4030U, 4096Mb, 500Gb+8Gb SSD, WiFi, BT, Cam, W8.1, Белый
+			(NX.MPFER.004)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V3-371-37NW 13.3" HD, Ci3-4005U, 4096Mb, 500Gb, WiFi, BT, Cam, W8.1, белый
+			(NX.MPFER.013)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V3-371-39DB 13.3" HD, Ci3-4005U, 6144Mb, 500Gb+8Gb SSD, WiFi, BT, Cam, W8.1, белый
+			(NX.MPFER.014)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V3-371-52FF 13.3" HD, Ci5-4210U, 6144Mb, 500Gb+8Gb SSD, WiFi, BT, Cam, W8.1, Серый
+			(NX.MPGER.005)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V3-371-52QE 13.3"HD, Ci5-5200U, 6144Mb, 500Gb+8Gb SSD, WiFi, BT, Cam, W8.1, белый
+			(NX.MPFER.016)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V3-371-55CA 13.3" FHD, Ci5-5200U, 6144Mb, 1Tb, WiFi, BT, Cam, W8.1, белый (NX.MPFER.015)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V3-371-55VZ 13.3" HD, Ci5-5200U, 6144Mb, 500Gb+8Gb SSD, WiFi, BT, Cam, W8.1, Серо-черный
+			(NX.MPGER.012)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V3-572G-52FH 15.6" FHD, Ci5-5200U, 8192Mb, 1Tb, GF840M-2Gb, DVD-RW, WiFi, BT, Cam, W8.1,
+			Серебристо-черный (NX.MPYER.006)
+		</li>
+		<li>
+			Ноутбук Acer Aspire VN7-591G-540U 15.6" 3840x2160, Ci5-4210H, 8192Mb, 1Tb+8Gb SSD, GTX860M-2Gb, WiFi, BT,
+			Cam, W8.1 (NX.MSYER.003)
+		</li>
+		<li>
+			Ноутбук Acer Aspire VN7-591G-73VN 15.6" 3840x2160, Ci7-4710HQ, 12288Mb, 1Tb+8Gb SSD, GT860M-2Gb, WiFi, BT,
+			Cam, W8.1, Черный (NX.MSYER.002)
+		</li>
+		<li>
+			Ноутбук Acer Aspire VN7-791G-58HZ 17.3" FHD, Ci5-4210H, 8192Mb, 2Tb, GT860M-4Gb, WiFi, BT, Cam, W8.1, Черный
+			(NX.MTHER.001)
+		</li>
+		<li>
+			Ноутбук Acer Aspire VN7-791G-77R9 17.3" FHD, Ci7-4710HQ, 12288Mb, 2Tb, GT860M-4Gb, WiFi, BT, Cam, W8.1,
+			Черный (NX.MTHER.003)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V Nitro VN7-571G-50Z2 15.6", Ci5-5200U, 6144Mb, 500Gb+8Gb SSD, GT840M-2Gb, DVD-RW, WiFi,
+			BT, Cam, W8.1, черный (NX.MQKER.008)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V Nitro VN7-571G-563H 15.6" FHD, Ci5-5200U, 6144Mb, 1Tb+8Gb SSD, GT840M-2Gb, DVD-RW,
+			WiFi, BT, Cam, W8.1, Черный (NX.MQKER.009)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V Nitro VN7-571G-73X2 15.6" FHD, Ci7-5500U, 6144Mb, 1Tb+8Gb SSD, DVD-RW, GF840M-2Gb,
+			WiFi, BT, Cam, W8.1 (NX.MQKER.007)
+		</li>
+		<li>
+			Ноутбук Acer Aspire V Nitro VN7-791G-536J 17.3" FHD, Ci5-4210H, 6144Mb, 1Tb+8Gb SSD, DVD-RW, GF840M-2Gb,
+			WiFi, BT, Cam, W8.1, Черный (NX.MQSER.004)
+		</li>
+		<li>
+			Ноутбук Acer E5-571G-52Q4 15.6" HD, Ci5-5200U, 4096Mb, 500Gb, GT840M-2Gb, WiFi, BT, Cam, W8.1, серый
+			(NX.MLZER.012)
+		</li>
+		<li>
+			Ноутбук Acer E5-571G-56MQ 15.6" HD, Ci5-5200U, 4096Mb, 500Gb, GT840M-2Gb, WiFi, BT, Cam, W8.1, Красный
+			(NX.MM0ER.013)
+		</li>
+		<li>
+			Ноутбук Acer E5-571G-57YT 15.6" HD, Ci5-5200U, 4096Mb, 500Gb, GF840M-2Gb, DVD-RW, WiFi, BT, Cam, W8.1,
+			фиолетовый (NX.MT8ER.003)
+		</li>
+		<li>
+			Ноутбук Acer E5-571G-59VX 15.6" HD, Ci5-5200U, 4096Mb, 500Gb, GT840M-2Gb, WiFi, BT, Cam, W8.1, синий
+			(NX.MT6ER.003)
+		</li>
+		<li>
+			Ноутбук Acer EX2510G-53DE 15.6" HD, Ci5-4210U, 4096Mb, 500Gb, GF820M-1Gb, WiFi, BT, Cam, W8.1 (NX.EEYER.005)
+		</li>
+		<li>
+			Ноутбук Acer EX2510G-54TK 15.6" HD, Ci5-4210U, 4096Mb, 500Gb, GF820M-1Gb, WiFi, BT, Cam, Linux
+			(NX.EEYER.004)
+		</li>
+		<li>
+			Ноутбук Acer EX2510G-P8HF 15.6" HD, Pentium 3556U, 4096Mb, 500Gb, GF820M-1Gb, WiFi, BT, Cam, W8.1, Black
+			(NX.EEYER.008)
+		</li>
+		<li>
+			Ноутбук Acer Extensa 15 EX2508-C63G 15.6" HD, Celeron N2840, 4096Mb, 500Gb, DVD-RW, WiFi, BT, Cam, W8.1,
+			черный (NX.EF1ER.001)
+		</li>
+		<li>
+			Ноутбук Acer Extensa 15 EX2508-P0JV 15.6" HD, Pentium N3540, 4096Mb, 500Gb, DVD-RW, WiFi, BT, Cam, W8.1,
+			черный (NX.EF1ER.003)
+		</li>
+		<li>
+			Ноутбук Acer Extensa EX2510G-345E 15.6" HD, Ci3-4005U, 4096Mb, 500Gb, GT820M-1Gb, DVD-RW, WiFi, BT, Cam,
+			6-Cell, Linux, черный (NX.EEYER.012)
+		</li>
+		<li>
+			Ноутбук Acer Extensa EX2510G-39P8 15.6" HD, Ci3-4005U, 4096Mb, 500Gb, DVD-RW, GT820M-1Gb, WiFi, BT, Cam,
+			W8.1, черный (NX.EEYER.011)
+		</li>
+		<li>
+			Ноутбук Acer TMP276-MG-380Z 17.3" FHD, Ci3-4030U, 8192Mb, 500Gb, DVD-RW, GF840M-2Gb, WiFi, BT, Cam, Linux
+			(NX.V9ZER.001)
+		</li>
+		<li>
+			Ноутбук Acer TravelMate TMP256-MG-32VZ 15.6" FHD, Ci3-4030U, 6144Mb, 500Gb, DVD-RW, GT840M-2Gb, WiFi, BT,
+			Cam, Linux, Черный (NX.V9PER.005)
+		</li>
+		<li>
+			Ноутбук Acer TravelMate TMP256-MG-56NH 15.6" HD, Ci5-4210U, 6144Mb, 500Gb, DVD-RW, GT840M-2Gb, WiFi, BT,
+			Cam, Linux (NX.V9PER.006)
+		</li>
+		<li>
+			Ноутбук Acer V3-371-584N 13.3" FHD, Ci5-5200U, 4096Mb, 1Tb, WiFi, BT, Cam, W8.1, Черно-серый (NX.MPGER.011)
+		</li>
+	</ul>
+	<script>
+
+		class Laptop {
+			constructor({ title, type, model, articul, diagonale, resolution, processor, ram, hdd, videoCard, wifi, bluetooth, webcam, opticalDrive, os }) {
+				this.title = title;
+				this.type = type;
+				this.model = model;
+				this.articul = articul;
+				this.diagonale = diagonale;
+				this.resolution = resolution;
+				this.processor = processor;
+				this.ram = ram;
+				this.hdd = hdd;
+
+				this.videoCard = videoCard;
+				this.wifi = wifi;
+				this.bluetooth = bluetooth;
+				this.webcam = webcam;
+				this.opticalDrive = opticalDrive;
+				this.os = os;
+			}
+		}
+
+		class LaptopList {
+			constructor(list) {
+				this.list = list;
+				this.render();
+			}
+
+			render() {
+				const items = this.list
+					.map(({ title, type, model, articul, diagonale, resolution, processor, ram, hdd, videoCard, wifi, bluetooth, webcam, opticalDrive, os }) => {
+						return `<div class="nout">
+									<h2 class="product-title">
+										
+									</h2>
+									<div class="img">
+										<img src="img/pic1.jpg" alt="">
+									</div>
+									<table>
+										<caption>Технические характеристики</caption>
+										<tbody>
+											<tr>
+												<td>ТИП</td>
+												<td>${type}</td>
+											</tr>
+											<tr>
+												<td>МОДЕЛЬ</td>
+												<td>${model}</td>
+											</tr>
+											<tr>
+												<td>АРТИКУЛ</td>
+												<td>${articul}</td>
+											</tr>
+											<tr>
+												<td>ДИАГОНАЛЬ</td>
+												<td>${diagonale} дюймов</td>
+											</tr>
+											<tr>
+												<td>РАЗРЕШЕНИЕ ЭКРАНА</td>
+												<td>${resolution}</td>
+											</tr>
+											<tr>
+												<td>ПРОЦЕССОР</td>
+												<td>${processor}</td>
+											</tr>
+											<tr>
+												<td>ОПЕРАТИВНАЯ ПАМЯТЬ</td>
+												<td>${ram}</td>
+											</tr>
+											<tr>
+												<td>ЖЕСТКИЙ ДИСК</td>
+												<td>${hdd}</td>
+											</tr>
+											<tr>
+												<td>ВИДЕОКАРТА</td>
+												<td>${videoCard}</td>
+											</tr>
+											<tr>
+												<td>Wi-Fi</td>
+												<td>${wifi ? 'есть' : 'отсутствует'}</td>
+											</tr>
+											<tr>
+												<td>Bluetooth</td>
+												<td>${bluetooth ? 'есть' :'отсутствует'}</td>
+											</tr>
+											<tr>
+												<td>Web-камера</td>
+												<td>${webcam ? 'есть' : 'отсутствует'}</td>
+											</tr>
+											<tr>
+												<td>ОПТИЧЕСКИЙ ПРИВОД</td>
+												<td>${opticalDrive ? 'есть' : 'отсутствует'}</td>
+											</tr>
+											<tr>
+												<td>ОПЕРАЦИОННАЯ СИСТЕМА</td>
+												<td>${os}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>`
+					})
+					.join('');
+				const body = document.querySelector('body');
+				body.insertAdjacentHTML('beforeend', items);
+			}
+		}
+
+		var items = document.querySelectorAll('.parse-list li');
+		const arr = [];
+		for (var i = 0, l = items.length; i < l; i++) {
+			let item = items[i].innerHTML.trim();
+			let reTitle = /(([Aa]cer\s([Tt]ravel[Mm]ate|[Aa]spire\s[Vv]\s[Nn]itro|[Aa]spire\sV15|[Aa]spire\sV15\sNitro|[Aa]spire\sV\s15\sNitro|[Aa]spire|Extensa|Extensa\s15))|[Aa]cer)\s[A-Z0-9]{2,7}-([A-Z0-9]{2,7}-[A-Z0-9]{2,7}|[A-Z0-9]{2,7})/gim;
+			let reType = /^[А-Яа-я]{1,}/gim;
+			let reModel = /[A-Z0-9]{2,}-[A-Z0-9]{2,}-{0,1}[A-Z0-9]{0,}/;
+			let reArticul = /[A-Z]{2}.[A-Z0-9]{5}.[0-9]{3}/gim;
+			let reDiagonale = /[0-9]{1,2}.{0,1}[0-9]{0,1}"/gim;
+			let reResolution = /([0-9]{4,}x[0-9]{4,})|FHD|HD/;
+			let reProcessor = /(Ci[0-9]{1}-[A-Za-z0-9]{5})|(Celeron\s[A-Z0-9]{5})|(AMD\s[A-Z0-9]{2,3}-[0-9]{4}\([0-9]{1}.[0-9]{1}\))|(AMD\s[A-Z0-9]{2,3}-[0-9]{4})|(Pentium\s[A-Z0-9]{5})|[A-Z0-9]{3}-[0-9]{4}/;
+			let reRam = /[0-9]{4}Mb/gim;
+			let reHdd = /([0-9]{3}Gb)|[0-9]Tb/gim;
+			let reVideoCard = /(G[TF][A-Z0-9]{4,5}-[0-9]Gb)|(R[0-9]\s[A-Z0-9]{4}-[0-9]Gb)|(M[0-9]{3}-[0-9]Gb)|(HD[0-9]{4}-[0-9]Gb)|(GF[A-Z0-9]{4,5})/gim;
+			let reWifi = /WiFi/gim;
+			let reBluetooth = /BT/gim;
+			let reWebcam = /Cam/gim;
+			let reOpticalDrive = /DVD-RW/gim;
+			let reOs = /(W8.1)|(W8)|Linux/gim;
+
+
+			let title = item.match(reTitle) ? item.match(reTitle)[0] : null;
+			let type = item.match(reType) ? item.match(reType)[0] : null;
+			let model = item.match(reModel) ? item.match(reModel)[0] : null;
+			let articul = item.match(reArticul) ? item.match(reArticul)[0] : null;
+			let diagonale = item.match(reDiagonale) ? item.match(reDiagonale)[0] : null;
+			let resolution = item.match(reResolution) ? item.match(reResolution)[0] : null;
+			let processor = item.match(reProcessor) ? item.match(reProcessor)[0] : null;
+			let ram = item.match(reRam) ? item.match(reRam)[0] : null;
+			let hdd = item.match(reHdd) ? item.match(reHdd)[0] : null;
+			let videoCard = item.match(reVideoCard) ? item.match(reVideoCard)[0] : null;
+			let wifi = item.match(reWifi) ? item.match(reWifi)[0] : null;
+			let bluetooth = item.match(reBluetooth) ? item.match(reBluetooth)[0] : null;
+			let webcam = item.match(reWebcam) ? item.match(reWebcam)[0] : null;
+			let opticalDrive = item.match(reOpticalDrive) ? item.match(reOpticalDrive)[0] : null;
+			let os = item.match(reOs) ? item.match(reOs)[0] : null;
+
+			arr.push(new Laptop({ title, type, model, articul, diagonale, resolution, processor, ram, hdd, videoCard, wifi, bluetooth, webcam, opticalDrive, os }));
+		}
+		const laptopList = new LaptopList(arr);
+		laptopList.render();
+
+	</script>
+	<!-- Вот пример как вы должны распарсить и вывести каждую модель ноутбука -->
+	<!--Ноутбук Acer TravelMate TMP256-MG-56NH 15.6" HD, Ci5-4210U, 6144Mb, 500Gb, DVD-RW,R7 M265-2Gb, WiFi, BT, Cam, Linux (NX.V9PER.006) 
+		Ноутбук Acer V3-371-584N 13.3" FHD, Ci5-5200U, 4096Mb, 1Tb, WiFi, BT, Cam, W8.1, Черно-серый (NX.MPGER.011)-->
+	 <div class="nout">
+		<h2 class="product-title">
+			Acer TravelMate TMP256-MG-56NH
+		</h2>
+		<div class="img">
+			<img src="img/pic1.jpg" alt="">
+		</div>
+		<table>
+			<caption>Технические характеристики</caption>
+			<tbody>
+				<tr>
+					<td>ТИП</td>
+					<td>ноутбук</td>
+				</tr>
+				<tr>
+					<td>МОДЕЛЬ</td>
+					<td>V3-371-584N</td>
+				</tr>
+				<tr>
+					<td>АРТИКУЛ</td>
+					<td>NX.MPGER.011</td>
+				</tr>
+				<tr>
+					<td>ДИАГОНАЛЬ</td>
+					<td>13.3 дюймов</td>
+				</tr>
+				<tr>
+					<td>РАЗРЕШЕНИЕ ЭКРАНА</td>
+					<td>1920x1080</td>
+				</tr>
+				<tr>
+					<td>ПРОЦЕССОР</td>
+					<td>Intel Core i5-5200U</td>
+				</tr>
+				<tr>
+					<td>ОПЕРАТИВНАЯ ПАМЯТЬ</td>
+					<td>4096 Мб</td>
+				</tr>
+				<tr>
+					<td>ЖЕСТКИЙ ДИСК</td>
+					<td>1000 Гб</td>
+				</tr>
+				<tr>
+					<td>ВИДЕОКАРТА</td>
+					<td>встроенная</td>
+				</tr>
+				<tr>
+					<td>Wi-Fi</td>
+					<td>есть</td>
+				</tr>
+				<tr>
+					<td>Bluetooth</td>
+					<td>есть</td>
+				</tr>
+				<tr>
+					<td>Web-камера</td>
+					<td>есть</td>
+				</tr>
+				<tr>
+					<td>ОПТИЧЕСКИЙ ПРИВОД</td>
+					<td>отсутсвует</td>
+				</tr>
+				<tr>
+					<td>ОПЕРАЦИОННАЯ СИСТЕМА</td>
+					<td>Windows 8.1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div> 
+	<script src="index.js"></script>
+</body>
+
+</html>
